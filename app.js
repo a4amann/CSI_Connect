@@ -16,9 +16,9 @@ var express           = require("express"),
 
 
 
-mongoose.connect("mongodb://localhost/tattytest");
+mongoose.connect("mongodb://csi:csiconnect@ds119489.mlab.com:19489/csi_connect");
 
-mongodb://csi:csiconnect@ds119489.mlab.com:19489/csi_connect
+
 
 mongoose.Promise = global.Promise
 
