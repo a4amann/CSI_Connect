@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/stylesheets/main.css">
+        <script src="https://code.jquery.com/jquery-git2.min.js"></script>
+        <style type="text/css">
+            body{
+
+                background-image: url("/images/black.jpg");
+            }
+        </style>
+    </head>
+    <body>
+    <nav class="navbar" style="background: transparent;">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Connect</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                   
+                       
+                        <li><a href="/regstud">Sign Up</a></li>
+                  
+                        
+                        <li><a href="/logout">Logout</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+    <div class="row">
+        <h1 style="text-align: center">Login as a student</h1>
+        <div style="width: 30%; margin: 25px auto;">
+            <form action="/logstud" method="post">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="username" placeholder="username" required=""  oninvalid="this.setCustomValidity('Please Enter the username')"
+ oninput="setCustomValidity('')">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="password" name="password" placeholder="password" required=""  oninvalid="this.setCustomValidity('Please Enter the password')"
+ oninput="setCustomValidity('')">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Login</button>
+                </div>
+            </form>
+            <a href="/Connect">Go Back</a>
+        </div>
+    </div>
+</div>
+ </div>
+    </body>
+</html>

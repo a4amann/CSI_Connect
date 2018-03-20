@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Connect Blog</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/stylesheets/main.css">
+        <script src="https://code.jquery.com/jquery-git2.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js">
+    </head>
+    <body>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/connect">Connect</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+  
+                        <li><a href="/logout">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+   
+    <div class="container">
+
+ 
+        <div class="col-md-12">
+            <div class="thumbnail">
+                <img class="img-responsive" src="<%=connectblog.image %>">
+                <div class="caption-full">
+                    
+                    <h4><a><%=connectblog.name%></a></h4>
+                    <p><%=connectblog.description%></p>
+                    <p>
+                        <em>Submitted By <%= connectblog.author.username %></em>
+                    </p>
+                    <% if(currentUser && connectblog.author.id.equals(currentUser._id)){ %>
+                        <a class="btn btn-warning" href="/connectblog/<%= connectblog._id %>/edit">Edit Messages</a>
+                    <% } %>
+                </div>
+            </div>
+            <div class="well">
+                <div class="text-right">
+                    <a class="btn btn-success" href="/connectblog/<%= connectblog._id %>/comments/new">Add New Comment</a>
+                </div>
+                <hr>
+                <% connectblog.comments.forEach(function(comment){ %>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <strong><%= comment.author.username %></strong>
+                            
+                       <div>
+                           <%= comment.text %> 
+
+                            <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+                                <form style="display: inline" class="pull-right" action="/connectblog/<%=connectblog._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
+                                    <button class="btn btn-xs btn-danger">DELETE</button>
+                                    <a href="/connectblog/<%=connectblog._id%>/comments/<%=comment._id%>/edit" class="btn btn-xs btn-info">EDIT</a>
+                                </form>
+                            <% } %> 
+                       </div>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+            <div style="text-align: center;">
+           <button class="btn btn-default"><a href="/connectblog" style="text-decoration: none; color: black;">Back</a></button> 
+        </div>
+        </div>
+        
+    </div>
+
+
+
+
+         </div>
+         
+    </body>
+</html>
